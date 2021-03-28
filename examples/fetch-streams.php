@@ -34,7 +34,7 @@ if (file_exists($socketFile)) {
 
 // if $browser is null then create a new chrome instance
 if (!$browser) {
-    $factory = new \HeadlessChromium\BrowserFactory();
+    $factory = new \HeadlessChromium\BrowserFactory('chromium-browser');
     $browser = $factory->createBrowser([
         'headless' => true,
         'keepAlive' => true
