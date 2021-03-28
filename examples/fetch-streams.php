@@ -16,11 +16,10 @@ use HeadlessChromium\BrowserFactory;
 require(__DIR__ . '/../vendor/autoload.php');
 
 // path to the file to store websocket's uri
-$socketFile = '/tmp/chrome-php-demo-socket';
-$chrommiumPath = '/snap/chromium/1523/bin/';
+$socketFile = '/tmp/chrome-php-demo-socket'; 
 
 // use chromium-browser executable
-$browserFactory = new BrowserFactory($chrommiumPath);
+$browserFactory = new BrowserFactory('chromium-browser');
 
 $browser = $browserFactory->createBrowser([
     'connectionDelay' => 0.8,           // add 0.8 second of delay between each instruction sent to chrome,
