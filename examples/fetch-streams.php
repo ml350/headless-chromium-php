@@ -19,7 +19,7 @@ require(__DIR__ . '/../vendor/autoload.php');
 $socketFile = '/tmp/chrome-php-demo-socket';
 
 // use chromium-browser executable
-$browserFactory = new BrowserFactory();
+$browserFactory = new BrowserFactory('chrome-php');
 
 $browser = $browserFactory->createBrowser([
     'headless'  => true,
