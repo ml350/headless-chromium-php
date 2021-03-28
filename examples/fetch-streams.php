@@ -17,9 +17,10 @@ require(__DIR__ . '/../vendor/autoload.php');
 
 // path to the file to store websocket's uri
 $socketFile = '/tmp/chrome-php-demo-socket';
+$chrommiumPath = '/root/snap/chromium';
 
 // use chromium-browser executable
-$browserFactory = new BrowserFactory('chrome-php');
+$browserFactory = new BrowserFactory($chrommiumPath);
 
 $browser = $browserFactory->createBrowser([
     'connectionDelay' => 0.8,           // add 0.8 second of delay between each instruction sent to chrome,
