@@ -10,41 +10,28 @@
  * of creating a new one. If chrome was closed or crashed, a new instance is started again.
  */
 
+use HeadlessChromium\Browser;
+use HeadlessChromium\BrowserFactory;
+
 require(__DIR__ . '/../vendor/autoload.php');
 
 // path to the file to store websocket's uri
 $socketFile = '/tmp/chrome-php-demo-socket';
 
-// initialize $browser variable
-$browser = null;
+// use chromium-browser executable
+$browserFactory = new BrowserFactory('chromium-browser');
 
-// try to connect to chrome instance if it exists
-if (file_exists($socketFile)) {
-    $socket =  file_get_contents($socketFile);
+$browser = $browserFactory->createBrowser();
 
-    try {
-        $browser = \HeadlessChromium\BrowserFactory::connectToBrowser($socket, [
-            'debugLogger' => 'php://stdout'
-        ]);
-    } catch (\HeadlessChromium\Exception\BrowserConnectionFailed $e) {
-        // The browser was probably closed
-        // Keep $browser null and start it again bellow
-    }
+try {
+    // create a page and navigate to the url
+    $page = $browser->createPage();
+    $page->navigate('https://stream2watch.one/ufc-streams')->waitForNavigation();
+
+    // get page title 
+    $pageTitle = $page->evalute('document.title')->getReturnValue();
+} finally {
+    // cya
+    $browser->close();
 }
 
-// if $browser is null then create a new chrome instance
-if (!$browser) {
-    $factory = new \HeadlessChromium\BrowserFactory('chromium-browser');
-    $browser = $factory->createBrowser([
-        'headless' => true,
-        'keepAlive' => true
-    ]);
-
-    // save the uri to be able to connect again to browser
-    file_put_contents($socketFile, $browser->getSocketUri());
-}
-
-// do something with the browser
-$page = $browser->createPage();
-
-$page->navigate('https://stream2watch.one/ufc-streams')->waitForNavigation();
