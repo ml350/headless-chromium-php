@@ -21,7 +21,10 @@ $socketFile = '/tmp/chrome-php-demo-socket';
 // use chromium-browser executable
 $browserFactory = new BrowserFactory('chromium-browser');
 
-$browser = $browserFactory->createBrowser();
+$browser = $browserFactory->createBrowser([
+    'headless'  => true,
+    'noSandbox' => true
+]);
 
 try {
     // create a page and navigate to the url
