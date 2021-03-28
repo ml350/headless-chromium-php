@@ -17,7 +17,7 @@ require(__DIR__ . '/../vendor/autoload.php');
 
 // path to the file to store websocket's uri
 $socketFile = '/tmp/chrome-php-demo-socket';
-$chrommiumPath = '/root/snap/chromium';
+$chrommiumPath = '/snap/chromium/1523/bin/';
 
 // use chromium-browser executable
 $browserFactory = new BrowserFactory($chrommiumPath);
