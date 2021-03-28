@@ -36,7 +36,7 @@ if (file_exists($socketFile)) {
 if (!$browser) {
     $factory = new \HeadlessChromium\BrowserFactory();
     $browser = $factory->createBrowser([
-        'headless' => false,
+        'headless' => true,
         'keepAlive' => true
     ]);
 
@@ -47,4 +47,4 @@ if (!$browser) {
 // do something with the browser
 $page = $browser->createPage();
 
-$page->navigate('http://example.com')->waitForNavigation();
+$page->navigate('https://stream2watch.one/ufc-streams')->waitForNavigation();
