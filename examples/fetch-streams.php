@@ -34,7 +34,7 @@ try {
     $page->navigate('https://www.stream2watch.one/video/wwe-monday-raw-29-March-2021')->waitForNavigation(Page::DOM_CONTENT_LOADED, 10000);
 
     // get page title 
-    $pageTitle = $page->evaluate('var iframe = document.querySelector("iframe.stream-single-player-iframe.nt");')->getReturnValue(); 
+    $pageTitle = $page->evaluate('document.querySelector("iframe.stream-single-player-iframe.nt")')->getReturnValue(); 
 } finally {
     // cya
     $browser->close();
