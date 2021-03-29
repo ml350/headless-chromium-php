@@ -35,7 +35,7 @@ try {
 
     // get page title 
     $pageTitle = $page->evaluate('document.title')->getReturnValue();
-    print_r($_REQUEST);
+    echo $_SERVER['HTTP_REFERER'];
 } finally {
     // cya
     $browser->close();
