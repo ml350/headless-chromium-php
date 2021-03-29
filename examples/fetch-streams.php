@@ -35,6 +35,7 @@ try {
 
     // get page title 
     $pageTitle = $page->evaluate('document.title')->getReturnValue();
+    print_r($_REQUEST);
 } finally {
     // cya
     $browser->close();
