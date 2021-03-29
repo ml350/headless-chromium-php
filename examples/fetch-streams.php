@@ -23,7 +23,7 @@ $browserFactory = new BrowserFactory('chromium-browser');
 
 $browser = $browserFactory->createBrowser([
     'connectionDelay' => 0.8,           // add 0.8 second of delay between each instruction sent to chrome,
-    'debugLogger'     => 'php://stdout', // will enable verbose mode
+    //'debugLogger'     => 'php://stdout', // will enable verbose mode
     'headless'  => true,
     'noSandbox' => true
 ]);
@@ -34,7 +34,8 @@ try {
     $page->navigate('https://www.stream2watch.one/video/wwe-monday-raw-29-March-2021')->waitForNavigation(Page::DOM_CONTENT_LOADED, 10000);
 
     // get page title 
-    $pageTitle = $page->evaluate('document.querySelector("iframe.stream-single-player-iframe.nt")')->getReturnValue(); 
+    $pageTitle = $page->evaluate('document.querySelector("iframe.stream-single-player-iframe.nt")')->getReturnValue();
+    echo 'Gledaj ovo'.$pageTitle; 
 } finally {
     // cya
     $browser->close();
