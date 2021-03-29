@@ -35,7 +35,7 @@ try {
 
     // get page title 
     $pageTitle = $page->evaluate('document.querySelector("iframe.stream-single-player-iframe.nt")')->getReturnValue();
-    var_dump('Gledaj ovo'.$pageTitle); 
+    var_dump($pageTitle); 
 } finally {
     // cya
     $browser->close();
