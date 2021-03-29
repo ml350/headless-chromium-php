@@ -10,7 +10,7 @@
  * of creating a new one. If chrome was closed or crashed, a new instance is started again.
  */
 
-use HeadlessChromium\Browser;
+use HeadlessChromium\Page;
 use HeadlessChromium\BrowserFactory;
 
 require(__DIR__ . '/../vendor/autoload.php');
@@ -31,11 +31,10 @@ $browser = $browserFactory->createBrowser([
 try {
     // create a page and navigate to the url
     $page = $browser->createPage();
-    $page->navigate('https://www.stream2watch.one/video/wwe-monday-raw-29-March-2021')->waitForNavigation();
+    $page->navigate('https://www.stream2watch.one/video/wwe-monday-raw-29-March-2021')->waitForNavigation(Page::DOM_CONTENT_LOADED, 10000);
 
     // get page title 
-    $pageTitle = $page->evaluate('document.title')->getReturnValue();
-    echo $_SERVER['HTTP_REFERER'];
+    $pageTitle = $page->evaluate('var iframe = document.querySelector("iframe.stream-single-player-iframe.nt");')->getReturnValue(); 
 } finally {
     // cya
     $browser->close();
