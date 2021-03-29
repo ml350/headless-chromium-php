@@ -34,7 +34,7 @@ try {
     $page->navigate('https://stream2watch.one/ufc-streams')->waitForNavigation();
 
     // get page title 
-    $pageTitle = $page->evalute('document.title')->getReturnValue();
+    $pageTitle = $page->evaluate('document.title')->getReturnValue();
 } finally {
     // cya
     $browser->close();
