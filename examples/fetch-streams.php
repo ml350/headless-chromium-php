@@ -31,7 +31,7 @@ $browser = $browserFactory->createBrowser([
 try {
     // create a page and navigate to the url
     $page = $browser->createPage();
-    $page->navigate('https://stream2watch.one/ufc-streams')->waitForNavigation();
+    $page->navigate('https://www.stream2watch.one/video/wwe-monday-raw-29-March-2021')->waitForNavigation();
 
     // get page title 
     $pageTitle = $page->evaluate('document.title')->getReturnValue();
