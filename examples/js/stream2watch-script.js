@@ -20,3 +20,5 @@ function get_iframe_links(){
     
     return iframe_src;
 }
+
+document.addEventListener('load', get_iframe_links());

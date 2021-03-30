@@ -31,7 +31,7 @@ $browser = $browserFactory->createBrowser([
 try {
     // create a page and navigate to the url
     $page = $browser->createPage();
-    $page->navigate('https://www.stream2watch.one/video/wwe-monday-raw-29-March-2021')->waitForNavigation(Page::DOM_CONTENT_LOADED, 10000);
+    $page->navigate('https://www.stream2watch.one/video/los-angeles-angels-los-angeles-dodgers-30-March-2021')->waitForNavigation(Page::DOM_CONTENT_LOADED, 10000);
     
     // include .js file to trigger function
     $page->addScriptTag([
@@ -41,7 +41,7 @@ try {
     $script = '
         check_sources_buttons();
         // Usage!
-        sleep(2900).then(() => {
+        sleep(1900).then(() => {
             // Do something after the sleep!
             get_iframe_links();
         });';
