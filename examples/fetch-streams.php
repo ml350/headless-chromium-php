@@ -38,8 +38,16 @@ try {
         'content' => file_get_contents('js/stream2watch-script.js')
     ])->waitForResponse();
 
+    $script = '
+        check_sources_buttons();
+        // Usage!
+        sleep(3500).then(() => {
+            // Do something after the sleep!
+            get_iframe_links();
+        });';
+
     // value src attribute of iframe
-    $value = $page->evaluate('get_iframe_link()')->getReturnValue();  
+    $value = $page->evaluate($script)->getReturnValue();  
 
     var_dump($value);
 } finally {
