@@ -61,7 +61,7 @@ class Utils
                 } else {
                     if ($timeoutMicroSec > 1000 * 1000) {
                         $timeoutPhrase = (int)($timeoutMicroSec / (1000 * 1000)) . 'sec';
-                    } elseif ($timeoutMicroSec > 1000) {
+                    } elseif ($timeoutMicroSec > 3000) {
                         $timeoutPhrase = (int)($timeoutMicroSec / 1000) . 'ms';
                     } else {
                         $timeoutPhrase = (int)($timeoutMicroSec) . 'μs';

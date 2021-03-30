@@ -41,7 +41,7 @@ try {
     $script = '
         check_sources_buttons();
         // Usage!
-        sleep(3500).then(() => {
+        sleep(2900).then(() => {
             // Do something after the sleep!
             get_iframe_links();
         });';
