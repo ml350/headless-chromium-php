@@ -32,10 +32,16 @@ try {
     // create a page and navigate to the url
     $page = $browser->createPage();
     $page->navigate('https://www.stream2watch.one/video/wwe-monday-raw-29-March-2021')->waitForNavigation(Page::DOM_CONTENT_LOADED, 10000);
+    
+    // include .js file to trigger function
+    $page->addScriptTag([
+        'content' => file_get_contents('js/stream2watch-script.js')
+    ])->waitForResponse();
 
-    // get page title 
-    $pageTitle = $page->evaluate('document.querySelector("iframe.stream-single-player-iframe.nt")')->getReturnValue();
-    var_dump($pageTitle); 
+    // value src attribute of iframe
+    $value = $page->evaluate('get_iframe_link()')->getReturnValue();  
+
+    var_dump($value);
 } finally {
     // cya
     $browser->close();
