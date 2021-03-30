@@ -1,6 +1,8 @@
-var sources_buttons = document.querySelector('.stream-box-sources-list-item');
 
 function get_iframe_link(){
+    // sources button on front end
+    var sources_buttons = document.querySelector('.stream-box-sources-list-item');
+
     // click the first source button
     sources_buttons.click();
     
