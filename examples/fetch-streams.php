@@ -40,8 +40,7 @@ try {
 
     $script = '
         let events = new Events();
-        events.choose_sport_from_home("/mlb-streams/"); 
-        console.log("besim");
+        events.redirect_to_sport_category("/mlb-streams/");  
         ';
 
     // value src attribute of iframe

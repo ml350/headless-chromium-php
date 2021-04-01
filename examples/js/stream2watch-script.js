@@ -17,6 +17,7 @@ function choose_sport_from_home(stream){
             return sport_link;
         }
     });
+    
 }
 
 function get_avaliable_events_from_specific_sport(){

@@ -4,14 +4,13 @@ class Events {
     }
 
     // chose sport category from homepage to get links with parameter 'stream' -- /sporexample-streams/
-    choose_sport_from_home(stream) {
+    redirect_to_sport_category(stream) {
         let sport_links = document.querySelectorAll('.lala a');
     
         sport_links.forEach(function(link){
             var href = link.getAttribute('href');
             if( href == stream ){
-                var sport_link = href;
-                return sport_link;
+                window.location.href = "https://stream2watch.one" + href; 
             }
         });
     }
@@ -37,6 +36,7 @@ class Events {
         sources_buttons.click();
     }
     
+    // get stream link from iframe child on event page
     get_iframe_links() {
         // after click define iframe main and child with the correct src attribute
         var iframe = document.querySelector('iframe.stream-single-player-iframe.nt');
