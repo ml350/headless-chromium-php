@@ -31,20 +31,17 @@ $browser = $browserFactory->createBrowser([
 try {
     // create a page and navigate to the url
     $page = $browser->createPage();
-    $page->navigate('https://www.stream2watch.one/video/los-angeles-angels-los-angeles-dodgers-30-March-2021')->waitForNavigation(Page::DOM_CONTENT_LOADED, 10000);
+    $page->navigate('https://www.stream2watch.one')->waitForNavigation(Page::DOM_CONTENT_LOADED, 10000);
     
     // include .js file to trigger function
     $page->addScriptTag([
-        'content' => file_get_contents('js/stream2watch-script.js')
+        'content' => file_get_contents('js/events-class.js')
     ])->waitForResponse();
 
     $script = '
-        check_sources_buttons();
-        // Usage!
-        sleep(1900).then(() => {
-            // Do something after the sleep!
-            get_iframe_links();
-        });';
+        let events = new Events();
+        events.choose_sport_from_home("/mlb-streams/"); 
+        ';
 
     // value src attribute of iframe
     $value = $page->evaluate($script)->getReturnValue();  
