@@ -1,16 +1,24 @@
-// Basketball streams
-var tab_basketball = tab_children[0];
-
-// MMA/UFC/WWE streams
-var tab_mma = tab_children[3];
-
-// Soccer streams 
-var tab_soccer = tab_children[5];
-
-function get_event_info(){
+function get_event_info(sport){
     var tab_nav = document.querySelector('h2');
     var tab_children = tab_nav.children;
     var tab_events = document.querySelectorAll('#tab-container .event');
+
+    // Basketball streams
+    var tab_basketball = tab_children[0];
+
+    // MMA/UFC/WWE streams
+    var tab_mma = tab_children[3];
+
+    // Soccer streams 
+    var tab_soccer = tab_children[5];
+
+    if (sport === 'basketball'){
+        tab_basketball.click();
+    } else if (sport === 'mma') {
+        tab_mma.click();
+    } else {
+        tab_soccer.click();
+    }
 
     var events = [];
 

@@ -38,7 +38,7 @@ try {
         'content' => file_get_contents('js/allfeeds-scripts.js')
     ])->waitForResponse();
 
-    $script = 'get_event_info()';  
+    $script = 'get_event_info("soccer")';  
 
     // value src attribute of iframe
     $value = $page->evaluate($script)->getReturnValue(); 
