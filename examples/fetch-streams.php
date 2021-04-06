@@ -31,7 +31,7 @@ $browser = $browserFactory->createBrowser([
 try {
     // create a page and navigate to the url
     $page = $browser->createPage();
-    $page->navigate('https://www.allfeeds.live')->waitForNavigation(Page::DOM_CONTENT_LOADED, 10000);
+    $page->navigate('https://allfeeds.live/')->waitForNavigation(Page::DOM_CONTENT_LOADED, 10000);
     
     // include .js file to trigger function
     $page->addScriptTag([

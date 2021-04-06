@@ -1,7 +1,3 @@
-var tab_nav = document.querySelector('h2');
-var tab_children = tab_nav.children;
-var tab_events = document.querySelectorAll('#tab-container .event');
-
 // Basketball streams
 var tab_basketball = tab_children[0];
 
@@ -11,8 +7,11 @@ var tab_mma = tab_children[3];
 // Soccer streams 
 var tab_soccer = tab_children[5];
 
-
 function get_event_info(){
+    var tab_nav = document.querySelector('h2');
+    var tab_children = tab_nav.children;
+    var tab_events = document.querySelectorAll('#tab-container .event');
+
     var events = [];
     var events_obj = {};
 
