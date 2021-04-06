@@ -26,5 +26,5 @@ function get_event_info(){
         events.push(events_obj); 
     } 
 
-    return events;
+    return events_obj;
 }
