@@ -31,22 +31,19 @@ $browser = $browserFactory->createBrowser([
 try {
     // create a page and navigate to the url
     $page = $browser->createPage();
-    $page->navigate('https://www.stream2watch.one')->waitForNavigation(Page::DOM_CONTENT_LOADED, 10000);
+    $page->navigate('https://www.allfeeds.live')->waitForNavigation(Page::DOM_CONTENT_LOADED, 10000);
     
     // include .js file to trigger function
     $page->addScriptTag([
-        'content' => file_get_contents('js/events-class.js')
+        'content' => file_get_contents('js/allfeeds-scripts.js')
     ])->waitForResponse();
 
-    $script = '
-        let events = new Events();
-        events.redirect_to_sport_category("/mlb-streams/");  
-        ';
+    $script = 'get_event_info()';  
 
     // value src attribute of iframe
-    $value = $page->evaluate($script)->getReturnValue();  
-
+    $value = $page->evaluate($script)->getReturnValue(); 
     var_dump($value);
+
 } finally {
     // cya
     $browser->close();

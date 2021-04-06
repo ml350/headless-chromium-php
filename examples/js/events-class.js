@@ -16,15 +16,17 @@ class Events {
     }
 
     // after selection of sport, display all avaliable links at the moment
-    get_avaliable_events_from_specific_sport() { 
-        let events = document.querySelectorAll('.title-t-a');
-        events.forEach(function(e){
-            let event_title = e.innerHTML;
-            let event_href  = e.href;
-            let event_array = [event_title, event_href];
-        
-            return event_array;
-        });
+    get_live_events_from_specific_sport() { 
+        let event_object = { name: Besim, url: besim.com, time: 22 };
+        let events = document.getElementsByClassName('title-t-a'); 
+        for( let event of events){
+            event_object.name = event[i].innerHTML;
+            event_object.page   = event[i].href; 
+            event_object.time = document.querySelector('.stream-live').innerHTML; 
+            
+        };
+ 
+        return event_object;
     }
 
     // important, needs to be upgraded to check all buttons
