@@ -13,10 +13,11 @@ function get_event_info(){
     var tab_events = document.querySelectorAll('#tab-container .event');
 
     var events = [];
-    var events_obj = {};
 
     var i;
     for (i = 0; i < tab_events.length; i++) {
+        var events_obj = {};
+
         var event_title = tab_events[i].querySelector('h4').innerText;
         var event_title_cut = event_title.substr(9);
         var event_link_input = tab_events[i].querySelector('input.sm').getAttribute("value");
@@ -26,5 +27,5 @@ function get_event_info(){
         events.push(events_obj); 
     } 
 
-    return events_obj;
+    return events;
 }
