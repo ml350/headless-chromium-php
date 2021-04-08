@@ -30,7 +30,7 @@ $browser = $browserFactory->createBrowser([
 
 /* Attempt MySQL server connection. Assuming you are running MySQL
 server with default setting (user 'root' with no password) */
-$link = mysqli_connect("localhost", "root", "ovoOno!!2021", "demo");
+$link = mysqli_connect("localhost", "root", "ovoOno!!2021", "ovoono2021");
  
 // Check connection
 if($link === false){
