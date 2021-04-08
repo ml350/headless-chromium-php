@@ -40,7 +40,9 @@ try {
     
     $script = 'click_sport_tab("mma")'; 
     $evaluation = $page->evaluate($script)->getReturnValue(); 
-    var_dump($evaluation);
+    $script = 'get_event_info()'; 
+    $value = $page->evaluate($script)->getReturnValue();
+    var_dump($value);
 
 } finally {
     // cya

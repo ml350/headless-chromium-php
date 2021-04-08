@@ -22,7 +22,7 @@ function click_sport_tab(sport){
         tab_soccer.click();
     }
 
-    return 'besim';
+    return;
 }
 
 function get_event_info(){
