@@ -23,7 +23,7 @@ $browserFactory = new BrowserFactory('chromium-browser');
 
 $browser = $browserFactory->createBrowser([
     'connectionDelay' => 0.8,           // add 0.8 second of delay between each instruction sent to chrome,
-    'debugLogger'     => 'php://stdout', // will enable verbose mode
+    //'debugLogger'     => 'php://stdout', // will enable verbose mode
     'headless'  => true,
     'noSandbox' => true
 ]);
@@ -40,7 +40,7 @@ try {
     
     $script = 'click_sport_tab("mma")'; 
     $evaluation = $page->evaluate($script)->getReturnValue(); 
-    var_dump($value);
+    var_dump($evaluation);
 
 } finally {
     // cya
