@@ -38,11 +38,11 @@ try {
         'content' => file_get_contents('js/allfeeds-scripts.js')
     ])->waitForResponse();
 
-    $script = 'choose_sport_tab("basketball"); setTimeout(function(){ get_event_info(); }, 3000);';  
+    $script = 'choose_sport_tab("basketball"); get_event_info();';  
 
     // value src attribute of iframe
     $value = $page->evaluate($script)->getReturnValue(); 
-    print_r($value);
+    var_dump($value);
 
 } finally {
     // cya
