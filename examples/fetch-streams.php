@@ -79,9 +79,6 @@ foreach($value as $v)
         } else{
             echo "ERROR: Could not able to execute $sql. " . mysqli_error($link);
         }
-
-        // Close connection
-        mysqli_close($link);
     } 
     elseif($sport == 'basketball')
     {
@@ -91,11 +88,10 @@ foreach($value as $v)
             echo "Records inserted successfully.";
         } else{
             echo "ERROR: Could not able to execute $sql. " . mysqli_error($link);
-        }
-
-        // Close connection
-        mysqli_close($link);
+        } 
     }
 }
 
+// Close connection
+mysqli_close($link);
 //var_dump($value);
