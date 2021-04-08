@@ -54,8 +54,10 @@ try {
     $script = 'get_event_info()'; 
     $value = $page->evaluate($script)->getReturnValue();
     
+    $t = time();
+    $date = date('d-m-Y', $t);
     $json_data = json_encode($value);
-    file_put_contents('myfile.json', $json_data);
+    file_put_contents('streams_fetched_'.$date.'.json', $json_data);
 
 } finally {
     // cya
