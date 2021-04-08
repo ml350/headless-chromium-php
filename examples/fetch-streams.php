@@ -39,7 +39,7 @@ try {
     ])->waitForResponse();
     
     // choose 3 sports basketball, soccer, mma
-    $sport = "mma";
+    $sport = "basketball";
     $script = 'click_sport_tab("'.$sport.'")'; 
     $evaluation = $page->evaluate($script)->getReturnValue(); 
     $script = 'get_event_info()'; 
