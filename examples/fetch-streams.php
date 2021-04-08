@@ -39,8 +39,7 @@ try {
     ])->waitForResponse();
     
     $script = 'click_sport_tab("mma")'; 
-    $evaluation = $page->evaluate($script);
-    $value = $evulation->getReturnValue();
+    $evaluation = $page->evaluate($script)->getReturnValue(); 
     var_dump($value);
 
 } finally {
