@@ -45,7 +45,7 @@ try {
     );
     
     // wait for the page to be reloaded
-    $evaluation->waitForPageReload();
+    $evaluation->waitForResponse();
     
     // get value in the new page
     $value = $page->evaluate('get_event_info()')->getReturnValue();
