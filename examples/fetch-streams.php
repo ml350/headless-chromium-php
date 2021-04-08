@@ -39,7 +39,7 @@ try {
     ])->waitForResponse();
  
     // value src attribute of iframe
-    $evulation = $page->callFunction('get_event_info(sport)', ["mma"]); 
+    $evulation = $page->callFunction('get_event_info("mma")'); 
     $value = $evulation->getReturnValue();
     var_dump($value);
 
