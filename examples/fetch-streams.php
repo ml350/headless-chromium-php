@@ -42,7 +42,7 @@ try {
 
     // value src attribute of iframe
     $value = $page->evaluate($script)->getReturnValue(); 
-    var_dump($value);
+    print_r($value);
 
 } finally {
     // cya
