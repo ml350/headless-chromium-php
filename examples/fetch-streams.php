@@ -38,9 +38,8 @@ try {
         'content' => file_get_contents('js/allfeeds-scripts.js')
     ])->waitForResponse();
     
-    $script = 'click_sport_tab()';
-    // value src attribute of iframe
-    $evulation = $page->callFunction($script, ['mma']); 
+    $script = 'click_sport_tab("mma")'; 
+    $evaluation = $page->evaluate($script);
     $value = $evulation->getReturnValue();
     var_dump($value);
 
