@@ -83,7 +83,7 @@ foreach($value as $v)
     elseif($sport == 'basketball')
     {
         // Attempt insert query execution
-        $sql = "INSERT INTO events_basketball (name, link) VALUES ({$v['name']}, {$v['link']})";
+        $sql = "INSERT INTO events_mma (name, link) VALUES ('$event_name', '$event_link')";
         if(mysqli_query($link, $sql)){
             echo "Records inserted successfully.";
         } else{
