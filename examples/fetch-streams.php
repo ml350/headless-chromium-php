@@ -28,15 +28,6 @@ $browser = $browserFactory->createBrowser([
     'noSandbox' => true
 ]);
 
-/* Attempt MySQL server connection. Assuming you are running MySQL
-server with default setting (user 'root' with no password) */
-$link = mysqli_connect("localhost", "root", "ovoOno!!2021", "ovoono2021");
- 
-// Check connection
-if($link === false){
-    die("ERROR: Could not connect. " . mysqli_connect_error());
-} 
-
 try {
     // create a page and navigate to the url
     $page = $browser->createPage();
@@ -63,34 +54,48 @@ try {
     // cya
     $browser->close();
 }
+ 
 
-// foreach($value as $v)
-// {
-//     if($sport == 'mma')
-//     {
-//         // Attempt insert query execution
-//         $sql = "INSERT INTO events_mma (name, link) VALUES ({$v['name']}, {$v['link']})";
-//         if(mysqli_query($link, $sql)){
-//             echo "Records inserted successfully.";
-//         } else{
-//             echo "ERROR: Could not able to execute $sql. " . mysqli_error($link);
-//         }
+/* Attempt MySQL server connection. Assuming you are running MySQL
+server with default setting (user 'root' with no password) */
+$link = mysqli_connect("localhost", "root", "ovoOno!!2021", "ovoono2021");
+ 
+// Check connection
+if($link === false){
+    die("ERROR: Could not connect. " . mysqli_connect_error());
+} 
 
-//         // Close connection
-//         mysqli_close($link);
-//     } elseif($sport == 'basketball')
-//     {
-//         // Attempt insert query execution
-//         $sql = "INSERT INTO events_basketball (name, link) VALUES ({$v['name']}, {$v['link']})";
-//         if(mysqli_query($link, $sql)){
-//             echo "Records inserted successfully.";
-//         } else{
-//             echo "ERROR: Could not able to execute $sql. " . mysqli_error($link);
-//         }
+foreach($value as $v)
+{
+    $event_name = $v['name'];
+    $event_link = $v['link'];
 
-//         // Close connection
-//         mysqli_close($link);
-//     }
-// }
+    if($sport == 'mma')
+    {
+        // Attempt insert query execution
+        $sql = "INSERT INTO events_mma (name, link) VALUES ('$event_name', '$event_link')";
+        if(mysqli_query($link, $sql)){
+            echo "Records inserted successfully.";
+        } else{
+            echo "ERROR: Could not able to execute $sql. " . mysqli_error($link);
+        }
+
+        // Close connection
+        mysqli_close($link);
+    } 
+    elseif($sport == 'basketball')
+    {
+        // Attempt insert query execution
+        $sql = "INSERT INTO events_basketball (name, link) VALUES ({$v['name']}, {$v['link']})";
+        if(mysqli_query($link, $sql)){
+            echo "Records inserted successfully.";
+        } else{
+            echo "ERROR: Could not able to execute $sql. " . mysqli_error($link);
+        }
+
+        // Close connection
+        mysqli_close($link);
+    }
+}
 
 //var_dump($value);
