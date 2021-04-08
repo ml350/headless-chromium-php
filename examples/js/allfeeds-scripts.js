@@ -1,13 +1,15 @@
-function get_event_info(sport){
+function click_sport_tab(sport){
     var tab_nav = document.querySelector('h2');
-    var tab_children = tab_nav.children;
-    var tab_events = document.querySelectorAll('#tab-container .event');
+    var tab_children = tab_nav.children; 
 
     // Basketball streams
     var tab_basketball = tab_children[0];
 
     // MMA/UFC/WWE streams
     var tab_mma = tab_children[3];
+
+    // Soccer streams 
+    var tab_soccer = tab_children[5];
 
     // Soccer streams 
     var tab_soccer = tab_children[5];
@@ -19,6 +21,20 @@ function get_event_info(sport){
     } else {
         tab_soccer.click();
     }
+
+    return 'besim';
+}
+
+function get_event_info(){
+    var tab_nav = document.querySelector('h2');
+    var tab_children = tab_nav.children;
+    var tab_events = document.querySelectorAll('#tab-container .event');
+
+    // Basketball streams
+    var tab_basketball = tab_children[0];
+
+    // MMA/UFC/WWE streams
+    var tab_mma = tab_children[3];
 
     var events = [];
 
