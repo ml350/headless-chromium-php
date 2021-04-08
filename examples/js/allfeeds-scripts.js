@@ -1,7 +1,6 @@
-function get_event_info(sport){
+function choose_sport_tab(sport){
     var tab_nav = document.querySelector('h2');
-    var tab_children = tab_nav.children;
-    var tab_events = document.querySelectorAll('#tab-container .event');
+    var tab_children = tab_nav.children; 
 
     // Basketball streams
     var tab_basketball = tab_children[0];
@@ -19,7 +18,13 @@ function get_event_info(sport){
     } else {
         tab_soccer.click();
     }
+}
 
+function get_event_info(){
+    var tab_nav = document.querySelector('h2');
+    var tab_children = tab_nav.children;
+    var tab_events = document.querySelectorAll('#tab-container .event'); 
+    
     var events = [];
 
     var i;
