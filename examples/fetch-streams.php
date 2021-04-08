@@ -37,8 +37,18 @@ try {
     $page->addScriptTag([
         'content' => file_get_contents('js/allfeeds-scripts.js')
     ])->waitForResponse();
-
-    $script = 'choose_sport_tab("basketball"); get_event_info();';  
+ 
+    $evaluation = $page->evaluate(
+    '(() => {
+            choose_sport_tab("besim");
+        })()'
+    );
+    
+    // wait for the page to be reloaded
+    $evaluation->waitForPageReload();
+    
+    // get value in the new page
+    $value = $page->evaluate('get_event_info()')->getReturnValue();
 
     // value src attribute of iframe
     $value = $page->evaluate($script)->getReturnValue(); 
