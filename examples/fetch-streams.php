@@ -39,7 +39,7 @@ try {
     ])->waitForResponse();
  
     // value src attribute of iframe
-    $evulation = $page->callFunction('click_sport_tab("mma")'); 
+    $evulation = $page->callFunction('click_sport_tab(sport)', ['mma']); 
     $value = $evulation->getReturnValue();
     var_dump($value);
 
