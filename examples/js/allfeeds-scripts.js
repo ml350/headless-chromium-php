@@ -1,6 +1,7 @@
-function choose_sport_tab(sport){
+function get_event_info(sport){
     var tab_nav = document.querySelector('h2');
-    var tab_children = tab_nav.children; 
+    var tab_children = tab_nav.children;
+    var tab_events = document.querySelectorAll('#tab-container .event');
 
     // Basketball streams
     var tab_basketball = tab_children[0];
@@ -11,20 +12,16 @@ function choose_sport_tab(sport){
     // Soccer streams 
     var tab_soccer = tab_children[5];
 
-    if (sport === 'basketball'){
-        tab_basketball.click();
-    } else if (sport === 'mma') {
-        tab_mma.click();
-    } else {
-        tab_soccer.click();
-    }
-}
+    setTimeout(function(){
+        if (sport === 'basketball'){
+            tab_basketball.click();
+        } else if (sport === 'mma') {
+            tab_mma.click();
+        } else {
+            tab_soccer.click();
+        }
+    }, 2500);
 
-function get_event_info(){
-    var tab_nav = document.querySelector('h2');
-    var tab_children = tab_nav.children;
-    var tab_events = document.querySelectorAll('#tab-container .event'); 
-    
     var events = [];
 
     var i;

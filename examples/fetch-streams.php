@@ -38,20 +38,8 @@ try {
         'content' => file_get_contents('js/allfeeds-scripts.js')
     ])->waitForResponse();
  
-    $evaluation = $page->evaluate(
-    '(() => {
-            choose_sport_tab("besim");
-        })()'
-    );
-    
-    // wait for the page to be reloaded
-    $evaluation->waitForResponse();
-    
-    // get value in the new page
-    $value = $page->evaluate('get_event_info()')->getReturnValue();
-
     // value src attribute of iframe
-    $value = $page->evaluate($script)->getReturnValue(); 
+    $value = $page->evaluate('get_event_info("mma")')->getReturnValue(); 
     var_dump($value);
 
 } finally {
