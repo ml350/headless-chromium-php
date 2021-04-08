@@ -12,15 +12,13 @@ function get_event_info(sport){
     // Soccer streams 
     var tab_soccer = tab_children[5];
 
-    setTimeout(function(){
-        if (sport === 'basketball'){
-            tab_basketball.click();
-        } else if (sport === 'mma') {
-            tab_mma.click();
-        } else {
-            tab_soccer.click();
-        }
-    }, 2500);
+    if (sport === 'basketball'){
+        tab_basketball.click();
+    } else if (sport === 'mma') {
+        tab_mma.click();
+    } else {
+        tab_soccer.click();
+    }
 
     var events = [];
 
