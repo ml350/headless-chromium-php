@@ -82,11 +82,10 @@ try {
             mysqli_close($link);
         }
     }
-
-    var_dump($value);
-
 } finally {
     // cya
     $browser->close();
 }
 
+
+var_dump($value);
